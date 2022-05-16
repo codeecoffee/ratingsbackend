@@ -6,6 +6,7 @@ interface IUserRequest{
   name: string;
   email: string;
   admin?: boolean;
+  password: string;
 }
 class CreateUserService{
   private prisma: PrismaClient
@@ -14,7 +15,7 @@ class CreateUserService{
     this.prisma = new PrismaClient()
   }
 
-  async execute({name,email, admin} : IUserRequest){
+  async execute({name,email, admin, password} : IUserRequest){
     if(!email){
       throw new Error('Email is required')
     }
@@ -32,7 +33,8 @@ class CreateUserService{
       data:{
         name,
         email,
-        admin
+        admin,
+        password,
       }
     })
     return user
