@@ -18,3 +18,19 @@ model User{
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
+
+model Tag{
+  id        String    @default(uuid()) @id 
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// model Compliments{
+//   id        String    @default(uuid()) @id 
+//   user_sender String 
+//   user_receiver String
+//   tag_id String
+//   message String
+//   createdAt DateTime  @default(now())
+// }
