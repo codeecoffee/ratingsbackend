@@ -10,7 +10,6 @@ class CreateTagService{
   async execute(name: string){
     
     if(!name) throw new Error('Name is required');
-
     const tagAlreadyExists = await this.prisma.tag.findUnique({
       where:{
         name: name
